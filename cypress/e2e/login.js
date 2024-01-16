@@ -3,6 +3,7 @@ import LoginPage from '../fixtures/page_object/loginPage';
 
 let testUserData;
 let errorMessage;
+
 describe('Login tests', () => {
   before('Load fixtures', () => {
     cy.fixture('testCredentials.json').then(data => {
