@@ -19,11 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install Faker
-        run: npm install @faker-js/faker --save-dev
-
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Cypress Run
         uses: cypress-io/github-action@v2
