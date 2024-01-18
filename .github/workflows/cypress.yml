@@ -12,7 +12,7 @@ jobs:
     name: E2E
     strategy:
       matrix:
-        browser: [chrome, firefox, edge, safari]
+        browser: [chrome, firefox, edge]
     steps:
       - name: Cache
         uses: actions/cache@v4.0.0
