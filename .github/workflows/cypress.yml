@@ -1,28 +1,27 @@
-name: End-to-End Cypress Tests
+name: Cypress Tests
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Ignore it for now'
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Cache
+        uses: actions/cache@v4.0.0
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Cypress Run
-        uses: cypress-io/github-action@v5
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Cypress.io
+        uses: cypress-io/github-action@v6.6.1
         with:
           browser: chrome
