@@ -9,7 +9,7 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    name: E2E on Chrome
+    name: E2E
     strategy:
       matrix:
         browser: [chrome, firefox, edge, safari]
