@@ -10,6 +10,9 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     name: E2E on Chrome
+    strategy:
+      matrix:
+        browser: [chrome, firefox, edge, safari]
     steps:
       - name: Cache
         uses: actions/cache@v4.0.0
@@ -23,4 +26,4 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v6.6.1
         with:
-          browser: chrome
+          browser: ${{ matrix.browser }}
