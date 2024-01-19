@@ -21,9 +21,8 @@ describe('Login', () => {
 
   it('Should login with valid credentials', () => {
     LoginPage.userCredentialsType(testUserData.email, testUserData.password);
-    cy.intercept('POST', '/api/login/').as('login');
     LoginPage.newSignInButton.click();
-    cy.wait('@login').its('response.statusCode').should('eq', 200);
+    HomePage.logOutButton.should('be.visible');
   });
 
   it('Should not login with invalid credentials', () => {
@@ -32,17 +31,15 @@ describe('Login', () => {
       testUserData.password + 1
     );
     LoginPage.newSignInButton.click();
-    LoginPage.loginErrorNotification.should(
-      'is.visible',
-      errorMessage.loginError
-    );
+    LoginPage.loginErrorNotification
+      .should('be.visible')
+      .and('contain', errorMessage.loginError);
   });
 
   it('Should not login with empty fields', () => {
     LoginPage.newSignInButton.click();
-    LoginPage.loginErrorNotification.should(
-      'is.visible',
-      errorMessage.loginError
-    );
+    LoginPage.loginErrorNotification
+      .should('be.visible')
+      .and('contain', errorMessage.loginError);
   });
 });

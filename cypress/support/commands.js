@@ -23,14 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test with specific error messages
-  if (
-    err.message.includes(
-      'Automatic publicPath is not supported in this browser'
-    )
-  ) {
-    return false;
-  }
-});

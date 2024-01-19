@@ -49,6 +49,10 @@ class QuizPage {
     );
   }
 
+  get cookAsSimpleAsPossible() {
+    return cy.get('[data-cy="quiz-page-cooking-habits-toggle-simple"]');
+  }
+
   get grillToggle() {
     return cy.get('[data-cy="quiz-page-appliances-toggle-tag-151"]');
   }
@@ -121,7 +125,7 @@ class QuizPage {
     );
   }
 
-  get beansLentilsNoTHanksButton() {
+  get beansLentilsNoThanksButton() {
     return cy.get('[data-cy="quiz-page-plants-toggle-tag-9-button-no thanks"]');
   }
 
@@ -167,6 +171,10 @@ class QuizPage {
     );
   }
 
+  get readyMadeBurritos() {
+    return cy.get('[data-cy="quiz-page-ready-made-toggle-tag-234"]');
+  }
+
   get jerkyToggle() {
     return cy.get('[data-cy="quiz-page-snacks-toggle-tag-44"]');
   }
@@ -183,6 +191,114 @@ class QuizPage {
 
   get exitQuizButton() {
     return cy.get('[data-cy="header-button"]');
+  }
+
+  quizHelloSelection() {
+    this.meVariantToggle.click();
+    this.improveHealthToggle.click();
+    this.saveMoneyToggle.click();
+    this.quizNextButton.click();
+  }
+
+  quizEatingHabitsSelection() {
+    this.omnivoreToggle.click();
+    this.dairyFreeToggle.click();
+    this.soyFreeToggle.click();
+    this.quizNextButton.click();
+  }
+
+  macroNutrientSelection() {
+    this.highProteinToggle.click();
+    this.quizNextButton.click();
+  }
+
+  cookingHabitsSelection() {
+    this.cookAsLittleAsPossibleToggle.click();
+    this.cookAsSimpleAsPossible.click();
+    this.quizNextButton.click();
+  }
+
+  appliancesSelection() {
+    this.stoveToggle.click();
+    this.grillToggle.click();
+    this.quizNextButton.click();
+  }
+
+  cuisinesSelection() {
+    this.classicAmericanLike.click();
+    this.fusionDislike.click();
+    this.quizNextButton.click();
+  }
+
+  flavorsSelection() {
+    this.sweetAndBalancedLike.click();
+    this.brightAndZingyDislike.click();
+    this.quizNextButton.click();
+  }
+
+  meatSelection() {
+    this.beefBisonAbsolutelyButton.click();
+    this.poultrySoSoButton.click();
+    this.porkNoThanksButton.click();
+    this.quizNextButton.click();
+  }
+
+  fishSelection() {
+    this.freshFishAbsolutelyButton.click();
+    this.smokedFishNoThanksButton.click();
+    this.shellFishSoSoButton.click();
+    this.quizNextButton.click();
+  }
+
+  plantsSelection() {
+    this.tofuTempehAbsolutelyButton.click();
+    this.beansLentilsNoThanksButton.click();
+    this.meatAlternativesSoSoButton.click();
+    this.quizNextButton.click();
+  }
+
+  polarizingSelection() {
+    this.cilantroToggle.click();
+    this.quizNextButton.click();
+  }
+
+  spiceSelection() {
+    this.mildToggle.click();
+    this.quizNextButton.click();
+  }
+
+  breakfastSelection() {
+    this.eggsToggle.click();
+    this.quizNextButton.click();
+    this.breakfastDaysAllButton.click();
+    this.quizNextButton.click();
+  }
+
+  lunchDinnerSelection() {
+    this.mainSidesToggle.click();
+    this.saladToggle.click();
+    this.quizNextButton.click();
+    this.lunchDaysSomeButton.click();
+    this.dinnerDaysNoneButton.click();
+    this.quizNextButton.click();
+  }
+
+  readyMadeSelection() {
+    this.readyMadeBurritos.click();
+    this.quizNextButton.click();
+  }
+
+  snacksSelection() {
+    this.jerkyToggle.click();
+    this.quizNextButton.click();
+    this.snacksDaysAllButton.click();
+    this.quizNextButton.click();
+  }
+
+  sweetsSelection() {
+    this.quizNextButton.click();
+    this.sweetsDaysNoneButton.click();
+    this.quizNextButton.click();
   }
 }
 export default new QuizPage();
