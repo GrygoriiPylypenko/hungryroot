@@ -4,7 +4,7 @@ import LoginPage from '../fixtures/page_object/loginPage';
 let testUserData;
 let errorMessage;
 
-describe('Login tests', () => {
+describe('Login', () => {
   before('Load fixtures', () => {
     cy.fixture('testCredentials.json').then(data => {
       testUserData = data;
@@ -19,14 +19,14 @@ describe('Login tests', () => {
     HomePage.logInButton.click();
   });
 
-  it('Should login with valid credantials', () => {
+  it('Should login with valid credentials', () => {
     LoginPage.userCredentialsType(testUserData.email, testUserData.password);
     cy.intercept('POST', '/api/login/').as('login');
     LoginPage.newSignInButton.click();
     cy.wait('@login').its('response.statusCode').should('eq', 200);
   });
 
-  it('Should not login with invalid credantials', () => {
+  it('Should not login with invalid credentials', () => {
     LoginPage.userCredentialsType(
       testUserData.email + 1,
       testUserData.password + 1

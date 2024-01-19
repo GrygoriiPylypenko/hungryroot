@@ -82,7 +82,7 @@ describe('Register new account', () => {
     SignupPage.emailInputField.type(email);
     SignupPage.passwordInputField.type(password);
     // cy.intercept('POST', 'https://www.hungryroot.com/api/signup/').as('signUp');
-    // SignupPage.signUpFormSubmitButton.click();
+    SignupPage.signUpFormSubmitButton.click();
     // cy.wait('@signUp').its('response.statusCode').should('eq', 200);
   });
 });
